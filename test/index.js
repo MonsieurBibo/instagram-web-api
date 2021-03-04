@@ -305,3 +305,12 @@ test('deleteMedia', async t => {
   t.is(did_delete, true)
   t.is(status, 'ok')
 })
+
+test('getThreads', async t => {
+  const { inbox, status } = await client.getThreads({
+    limit: 10,
+    messageLimit: 10
+  })
+  t.true(typeof inbox.threads !== 'undefined')
+  t.is(status, 'ok')
+})
