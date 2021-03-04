@@ -126,6 +126,7 @@ const client = new Instagram({ username, password, cookieStore })
   * [.getChainsData({ userId })](#getChainsData)
   * [.getMediaLikes({ shortcode, first, after })](#getMediaLikesParams)
   * [.getMediaComments({ shortcode, first, after })](#getMediaCommentsParams)
+  * [.getThreads({ limit, messageLimit })](#getThreadsParams)
 
 ### Instagram(credentials, opts)
 ```js
@@ -500,6 +501,16 @@ await client.getPhotosByHashtag({ hashtag: 'unicorn' })
     - `shortcode`: The shortcode media like this: https://www.instagram.com/p/B-00000000/, only put shortcode like this : B-000000000
     - `first`:  A `number` of records to return max is `49`
     - `after`: The query cursor `String` for pagination
+
+### getThreads(params)
+  ```js
+  const DMs = await client.getThreads({ limit, messageLimit })
+
+  ```
+  > This will return an array of threads (conversations) plus other infos about your DMs.
+  - `params`
+    - `limit`: A `number` of threads wanted. By default, it's 10.
+    - `messageLimit`:  A `number` of threads wanted. By default, it's 10.
 
 ## License
 
